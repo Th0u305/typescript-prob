@@ -1,24 +1,17 @@
 
-
-const filterEvenNumbers = (value: number[]) => {
-    value.forEach((num) => {
-        if (num % 2 === 0) {
-            return num
-        }
-    });
-}
-
+// Problem 1
+const filterEvenNumbers = (value: number[]): number[] =>  value.filter(num => num % 2 === 0);
 filterEvenNumbers([1, 2, 3, 4, 5, 6]);
 
 
+// Problem 2
 const reverseString =(value:string)=>{
     return value.split("").reverse().join("");
 }
-
-
 reverseString("typescript");
 
 
+// Problem 3
 const checkType=(value: string | number)=>{
     if (typeof value === "string") {
         return "String"
@@ -27,19 +20,12 @@ const checkType=(value: string | number)=>{
     }
 }
 
-
 checkType("Hello");
 checkType(42);
 
 
-type User = {
-    id: number;
-    name: string;
-    age: number;
-}
-
-
-const getProperty= (obj: User, key: keyof User  )=>{
+// Problem 4
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
     return obj[key];
 }
 
@@ -48,6 +34,7 @@ const user = { id: 1, name: "John Doe", age: 21 };
 getProperty(user, "name");
 
 
+// Problem 5
 interface Book {
     title: string;
     author: string;
